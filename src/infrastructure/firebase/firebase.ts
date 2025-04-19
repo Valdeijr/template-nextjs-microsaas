@@ -2,9 +2,7 @@ import 'server-only'
 import { cert, getApps, initializeApp } from 'firebase-admin/app'
 import { getFirestore } from 'firebase-admin/firestore'
 
-if (!process.env.FIREBASE_PRIVATE_KEY) {
-  throw new Error('FIREBASE_PRIVATE_KEY is not defined')
-}
+if (!process.env.FIREBASE_PRIVATE_KEY) throw new Error('FIREBASE_PRIVATE_KEY is not defined')
 
 const decodeKey = Buffer.from(process.env.FIREBASE_PRIVATE_KEY, 'base64').toString('utf-8')
 
